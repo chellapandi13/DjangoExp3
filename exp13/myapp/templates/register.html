@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input {
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 100%;
+        }
+        .errorlist {
+            color: red;
+            font-size: 14px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kamaraj College of Engineering and Technology</h1>
+    <h2>Web Applications using Django Framework</h2>
+    <h3>Chellapandi TR </h3> 
+    <h3>22UIT072</h3>
+    <h3>Registration Form</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div>
+            <label for="username">Username</label>
+            {{ form.username }}
+            <div class="errorlist">{{ form.username.errors }}</div>
+        </div>
+        <div>
+            <label for="email">Email</label>
+            {{ form.email }}
+            <div class="errorlist">{{ form.email.errors }}</div>
+        </div>
+        <div>
+            <label for="password1">Password</label>
+            {{ form.password1 }}
+            <div class="errorlist">{{ form.password1.errors }}</div>
+        </div>
+        <div>
+            <label for="password2">Confirm Password</label>
+            {{ form.password2 }}
+            <div class="errorlist">{{ form.password2.errors }}</div>
+        </div>
+        <button type="submit">Sign Up</button>
+    </form>
+</body>
+</html>
